@@ -1,0 +1,6 @@
+tensotrflow
+streamlit
+matplotlib
+pyyaml
+numpy
+pandas
