@@ -164,3 +164,4 @@ data/
 notebook/*.h5
 dataset/
 unzip_data/
+models/*.h5
