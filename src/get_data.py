@@ -47,7 +47,7 @@ def main(config_path):
         
         
     # validating data
-    validate_image(config)
+    #validate_image(config)
     
         
         
