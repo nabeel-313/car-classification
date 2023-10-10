@@ -4,14 +4,13 @@ import shutil
 from tqdm import tqdm
 import logging
 from src.utils.common import read_yaml, create_directories, unzip_file
-#from src.utils.data_mgmt import validate_image
+from src.utils.data_mgmt import validate_image
 import random
 import urllib.request as req
 
 STAGE = "get data"
-
 logging.basicConfig(
-    filename=os.path.join('logs', 'running_logs.log'),
+    filename=os.path.join('logs', 'running_logs1.log'),
     level=logging.INFO,
     format="[%(asctime)s: %(levelname)s: %(module)s]: %(message)s",
     filemode="a"
@@ -45,6 +44,10 @@ def main(config_path):
         unzip_file(source=data_file_path, dest=unzip_data_dir)
     else:
         logging.info(f"data already extracted")
+        
+        
+    # validating data
+    validate_image(config)
     
         
         
