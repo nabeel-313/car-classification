@@ -2,23 +2,29 @@ data:
   source_data_url: "https://www.kaggle.com/datasets/kshitij192/cars-image-dataset/download?datasetVersionNumber=3"
   local_dir: data
   data_file: data.zip
-  unzip_data_dir: unzip_data
   bad_data_dir: bad_data
+  unzip_data_dir: unzip_data
+  train_data : train
+  test_data : test
   parent_data_dir: Cars Dataset
   model_dir: models
   init_model_file: init_model.h5
   early_stop_file: best_weight.h5
   trained_model_file: trained_model.h5
   CSV_file: log.csv
+  graph_file : plots
 
 params:
-  img_shape: [224,2240,3]
-  lr: 0.001
-  loss: sparse_categorical_crossentropy
+  img_shape: [224,224,3]
+  lr: 0.0001
+  loss: categorical_crossentropy
   metrics: ["accuracy"]
+  targer_size : [224,224]
+  color_mode : rgb
+  class_mode : categorical
   validation_split: 0.2
   batch_size: 32
   seed: 42
   buffer_size: 32
-  epochs: 30
+  epochs: 50
 
