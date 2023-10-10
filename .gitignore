@@ -162,3 +162,5 @@ cython_debug/
 env/
 data/
 notebook/*.h5
+dataset/
+unzip_data/
