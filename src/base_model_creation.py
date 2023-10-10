@@ -11,7 +11,7 @@ import tensorflow as tf
 STAGE = "BASE MODEL CREATION"
 
 logging.basicConfig(
-    filename=os.path.join("logs", "running_logs1.log"),
+    filename=os.path.join("logs", "running_logs.log"),
     level=logging.INFO,
     format="[%(asctime)s: %(levelname)s: %(module)s]: %(message)s",
     filemode="a"
