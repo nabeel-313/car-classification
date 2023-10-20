@@ -26,5 +26,10 @@ params:
   batch_size: 32
   seed: 42
   buffer_size: 32
-  epochs: 50
+  epochs: 2
+
+MODELS:
+  early_stop_vgg16: best_weight_vgg16.h5
+  trained_model_vg16: trained_model_vgg16.h5
+
 
