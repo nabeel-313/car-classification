@@ -30,7 +30,7 @@ def main(config_path):
     config["data"]["unzip_data_dir"],
     config["data"]["parent_data_dir"]
     )
-    print("??????",PARENT_DIR)
+    #print("??????",PARENT_DIR)
     train_data = os.path.join(
     config["data"]["unzip_data_dir"],
     config["data"]["parent_data_dir"],
@@ -110,9 +110,9 @@ def main(config_path):
     
     early_stop = os.path.join(
         config["data"]["model_dir"], 
-        config["data"]["early_stop_file"])
+        config["MODELS"]["early_stop_vgg16"])
 
-    classifier = tf.keras.models.load_model(path_to_model)
+    VGG16_classifier = tf.keras.models.load_model(path_to_model)
     
     #Early stop call back
     earlystop = tf.keras.callbacks.ModelCheckpoint(early_stop, 
@@ -136,7 +136,7 @@ def main(config_path):
     ## training
     logging.info(f"training started")
 
-    hist = classifier.fit_generator(train_generator,
+    hist = VGG16_classifier.fit_generator(train_generator,
                     validation_data = train_generator,
                     steps_per_epoch = train_generator.n//train_generator.batch_size,
                     validation_steps = validation_generator.n//validation_generator.batch_size,
@@ -145,9 +145,9 @@ def main(config_path):
     
     trained_model_file = os.path.join(
         config["data"]["model_dir"], 
-        config["data"]["trained_model_file"])
+        config["MODELS"]["trained_model_vg16"])
 
-    classifier.save(trained_model_file)
+    VGG16_classifier.save(trained_model_file)
     logging.info(f"trained model is saved at : {trained_model_file}")
     
     # Plot the error and accuracy
@@ -163,7 +163,7 @@ def main(config_path):
     #plt.show()
     
     create_directories([config["data"]["graph_file"]])
-    plt.savefig(os.path.join(config["data"]["graph_file"],'acc_val_plot.jpg'), format='jpg')
+    plt.savefig(os.path.join(config["data"]["graph_file"],'acc_val_plot_vgg16.jpg'), format='jpg')
     
 
     
